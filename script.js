@@ -19,14 +19,15 @@ function find(evt){
     expense.innerHTML = "$"+texpense;
     balance.innerHTML = "$"+tamt;
     var history = document.getElementById('list');
-    text = "<tr><th>"+text+"</th><td>"+amount+"</td><td><button class='delete'>X</button></td></tr>";
+    text = '<li class="minus">'+text+'<span>'+amount+'</span><button class="delete-btn">x</button></li>';
     history.innerHTML += text;
 }
 function removelist(event){
-    if(!event.target.classList.contains('delete')){
+    if(!event.target.classList.contains('delete-btn')){
         return;
     }
-    event.target.closest('tr').remove();
+    event.target.closest('li').remove();
+
 }
 document.querySelector('button').addEventListener('click',find);
-document.querySelector('table').addEventListener('click',removelist);
+document.querySelector('.list').addEventListener('click',removelist);
